@@ -1,0 +1,24 @@
+<h2>Clients</h2>
+
+<p></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th> |
+            <th>Last Name</th> |
+            <th>Phone Number</th> |
+            <th>Email Address</th> |
+            <th>Address</th>            
+        </tr>
+        <tr *ngFor="let client of clients">
+            <td>{{client.firstName}}</td> |
+            <td>{{client.lastName}}</td> |
+            <td>{{client.phoneNumber}}</td> |
+            <td>{{client.emailAddress}}</td> |
+            <td>{{client.address}}</td>
+            <td> Edit | 
+                <button type="button" (click)="delete(client.userID)">Delete</button>
+            </td>
+        </tr>
+    </thead>
+</table>
