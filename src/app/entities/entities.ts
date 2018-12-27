@@ -56,11 +56,11 @@ export class TimeSheet {
 }
 
 export class TimeSheetDetail {
-    timeSheetDetailId: number;
+    timeSheetDetailID: number;
     workDate: Date;
     dayOfWeek: number;
     hours: number;
-    timeSheetId: number;
+    timeSheetID: number;
     timeSheet: TimeSheet;
 }
 

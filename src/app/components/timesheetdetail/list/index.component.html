@@ -1,0 +1,22 @@
+<h2>Time Sheet Detail</h2>
+
+<p></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>TimeSheetDetailID</th> |
+            <th>Work Date</th> |
+            <th>Day of the Week</th> |
+            <th>Hours</th>             
+        </tr>
+        <tr *ngFor="let timesheetdetail of timesheetdetails">
+            <td>{{timesheetdetail.timeSheetDetailID}}</td> |
+            <td>{{timesheetdetail.workDate}}</td> |
+            <td>{{timesheetdetail.dayOfWeek}}</td> |
+            <td>{{timesheetdetail.hours}}</td>
+            <td> <button type="button" (click)="edit(timesheetdetail.timeSheetDetailID)">Edit</button> | 
+                 <button type="button" (click)="delete(timesheetdetail.timeSheetDetailID)">Delete</button>
+            </td>
+        </tr>
+    </thead>
+</table>
