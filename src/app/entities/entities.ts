@@ -1,5 +1,5 @@
 export class User {
-    userId: number;
+    userID: number;
     firstName: string;
     lastName: string;
     phoneNumber: string;
@@ -7,7 +7,7 @@ export class User {
 }
 
 export class Company {
-    companyId: number;
+    companyID: number;
     companyName: string;
     address: string;
     phoneNumber: string;
@@ -15,7 +15,7 @@ export class Company {
 }
 
 export class Job {
-    jobId: number;
+    jobID: number;
     jobName: string;
     address: string;
     startDate: Date;
@@ -48,7 +48,7 @@ export class Supplier extends Company {
 }
 
 export class TimeSheet {
-    timeSheetId: number;
+    timeSheetID: number;
     weekEndingDate: Date;
     payRate: number;
     jobId: number;
@@ -65,41 +65,41 @@ export class TimeSheetDetail {
 }
 
 export class PaymentSheet {
-    paymentsheetId: number;
+    paymentsheetID: number;
     weekEndingDate: Date;
-    jobId: number;
-    companyId: number;
+    jobID: number;
+    companyID: number;
     job: Job;
     company: Company;
     paymentsheetdetails: PaymentSheetDetail[];
 }
 
 export class PaymentSheetDetail {
-    paymentSheetDetailId: number;
+    paymentSheetDetailID: number;
     workDate: Date;
     dayOfWeek: number;
     payOut: number;
-    paymentSheetId: number;
+    paymentSheetID: number;
     paymentSheet: PaymentSheet;
 }
 
 export class EmployeeJob {
-    userId: number;
-    jobId: number;
+    userID: number;
+    jobID: number;
     employee: Employee;
     job: Job;
 }
 
 export class SubContractorJob {
     companyId: number;
-    jobId: number;
+    jobID: number;
     subContractor: SubContractor;
     job: Job;
 }
 
 export class SupplierJob {
-    companyId: number;
-    jobId: number;
+    companyID: number;
+    jobID: number;
     supplier: Supplier;
     job: Job;
 }
