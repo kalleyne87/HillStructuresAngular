@@ -1,4 +1,5 @@
 import { Client } from './../entities/entities';
+import { JobService } from './job.service';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
@@ -11,7 +12,8 @@ export class ClientService {
     private BASE_URL: string = 'https://localhost:44349/api/client/';
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private jobService: JobService
     ) {}
 
     getAll(): Observable<Client[]> {

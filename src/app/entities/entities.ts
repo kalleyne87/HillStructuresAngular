@@ -21,6 +21,7 @@ export class Job {
     startDate: Date;
     endDate: Date;
     costEstimate: number;
+    clientID: number;
     client: Client;
     timeSheets: TimeSheet[];
     employeeJobs: EmployeeJob[];
@@ -51,8 +52,11 @@ export class TimeSheet {
     timeSheetID: number;
     weekEndingDate: Date;
     payRate: number;
-    jobId: number;
+    jobID: number;
+    employeeID: number;
+    job: Job;
     employee: Employee;
+    timeSheetDetails: TimeSheetDetail[];
 }
 
 export class TimeSheetDetail {

@@ -1,6 +1,7 @@
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
+import { HomeComponent } from './components/home/index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClientListComponent } from './components/client/list/index.component';
@@ -9,11 +10,11 @@ import { ClientListComponent } from './components/client/list/index.component';
 const routes: Routes = [
   {
     path: '',
-    component: TimeSheetDetailListComponent
+    component: HomeComponent
   },
   {
-    path: 'index',
-    component: TimeSheetDetailListComponent
+    path: 'home/index',
+    component: HomeComponent
   },
   {
     path: 'add',
