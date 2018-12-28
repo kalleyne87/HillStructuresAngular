@@ -1,3 +1,5 @@
+import { HomeComponent } from './components/home/home.component';
+import { JobListComponent } from './components/job/list/index.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -9,18 +11,26 @@ import { ClientListComponent } from './components/client/list/index.component';
 const routes: Routes = [
   {
     path: '',
-    component: TimeSheetDetailListComponent
+    component: HomeComponent
   },
   {
     path: 'index',
+    component: HomeComponent
+  },
+  {
+    path: 'job/index',
+    component: JobListComponent
+  },
+  {
+    path: 'timesheetdetail/index',
     component: TimeSheetDetailListComponent
   },
   {
-    path: 'add',
+    path: 'timesheetdetail/add',
     component: AddTimeSheetDetailComponent
   },
   {
-    path: 'edit/:timeSheetDetailID',
+    path: 'timesheetdetail/edit/:timeSheetDetailID',
     component: EditTimeSheetDetailComponent
   }
 ];
