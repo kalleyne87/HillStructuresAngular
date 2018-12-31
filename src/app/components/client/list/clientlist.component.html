@@ -16,7 +16,7 @@
             <td>{{client.phoneNumber}}</td> |
             <td>{{client.emailAddress}}</td> |
             <td>{{client.address}}</td>
-            <td> Edit | 
+            <td>  <button type="button" (click)="edit(client.userID)">Edit</button> | 
                 <button type="button" (click)="delete(client.userID)">Delete</button>
             </td>
         </tr>

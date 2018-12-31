@@ -19,13 +19,23 @@ export class ClientService {
                             .pipe(map(res => res as Client[]));
         }
 
-    get(UserId: number): Observable<Client> {
-        return this.http.get(this.BASE_URL + 'get/' + UserId)
+    get(userID: number): Observable<Client> {
+        return this.http.get(this.BASE_URL + 'get/' + userID)
                             .pipe(map(res => res as Client));
     }
 
-    delete(userId: number) {
-        return this.http.delete(this.BASE_URL + 'delete/' + userId)
+    create(client: Client) {
+        return this.http.post(this.BASE_URL + 'create/', client)
+                            .pipe(map(res => res as Client));
+    }
+
+    update(client: Client) {
+        return this.http.put(this.BASE_URL + 'update/', client)
+                            .pipe(map(res => res as Client));
+    }
+
+    delete(userID: number) {
+        return this.http.delete(this.BASE_URL + 'delete/' + userID)
                             .pipe(map(res => res as Client));
         }
 }

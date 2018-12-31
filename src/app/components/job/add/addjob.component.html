@@ -1,0 +1,30 @@
+<h2>Add a job</h2>
+
+<form [formGroup]="jobForm" (ngSubmit)="save()">
+    <table>
+        <tr>
+            <td>Work Date</td>
+            <td>
+                <input type="date" formControlName="workDate" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td>Day of Week</td>
+            <td>
+                <input type="number" min="0" formControlName="dayOfWeek" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td>Hours</td>
+            <td>
+                <input type="number" min="0" formControlName="hours" required="required" />
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input type="submit" value="Save" />
+            </td>
+        </tr>                  
+    </table>
+</form>

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Job } from './../../../entities/entities';
-import { JobService } from "./../../../services/job.service";
+import { Job } from '../../../entities/entities';
+import { JobService } from "../../../services/job.service";
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './index.component.html'
+  templateUrl: './joblist.component.html'
 })
 
 export class JobListComponent implements OnInit {
 
-    Jobs: Job[];
+    jobs: Job[];
     constructor(private jobService: JobService) {}
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class JobListComponent implements OnInit {
     loadData() {
       this.jobService.getAll().subscribe(
         res => {
-          this.Jobs = res;
+          this.jobs = res;
         },
         error => {
           alert(error);

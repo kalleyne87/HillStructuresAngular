@@ -1,11 +1,15 @@
 import { HomeComponent } from './components/home/home.component';
-import { JobListComponent } from './components/job/list/index.component';
+import { JobListComponent } from './components/job/list/joblist.component';
+import { AddJobComponent } from './components/job/add/addjob.component';
+import { EditJobComponent } from './components/job/edit/editjob.component';
+import { AddClientComponent } from './components/client/add/addclient.component';
+import { EditClientComponent } from './components/client/edit/editclient.component';
+import { ClientListComponent } from './components/client/list/clientlist.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClientListComponent } from './components/client/list/index.component';
 
 
 const routes: Routes = [
@@ -14,12 +18,28 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'index',
-    component: HomeComponent
+    path: 'clientlist',
+    component: ClientListComponent
   },
   {
-    path: 'job/index',
+    path: 'addclient',
+    component: AddClientComponent
+  },
+  {
+    path: 'editclient/:userID',
+    component: EditClientComponent
+  },
+  {
+    path: 'joblist',
     component: JobListComponent
+  },
+  {
+    path: 'addjob',
+    component: AddJobComponent
+  },
+  {
+    path: 'editjob/:jobID',
+    component: EditJobComponent
   },
   {
     path: 'timesheetdetail/index',
