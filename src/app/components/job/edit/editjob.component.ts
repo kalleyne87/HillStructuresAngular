@@ -1,6 +1,7 @@
+import { Client } from './../../../entities/entities';
 import { Injectable } from '@angular/core';
-import { TimeSheetDetail } from '../../../entities/entities';
-import { TimeSheetDetailService } from '../../../services/timeSheetDetail.service';
+import { Job } from '../../../entities/entities';
+import { JobService } from '../../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,23 +12,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class EditJobComponent implements OnInit {
 
-    timeSheetDetailForm: FormGroup;
+    jobForm: FormGroup;
     constructor(
         private formBuilder: FormBuilder,
-        private timeSheetDetailService: TimeSheetDetailService,
+        private jobService: JobService,
         private router: Router,
         private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-      var timesheetdetailid = this.activatedRoute.snapshot.params.timeSheetDetailID;
-      this.timeSheetDetailService.get(timesheetdetailid).subscribe(
+      var jobID = this.activatedRoute.snapshot.params.jobID;
+      this.jobService.get(jobID).subscribe(
         res => {
-          this.timeSheetDetailForm = this.formBuilder.group({
-            workDate: res.workDate,
-            dayOfWeek: res.dayOfWeek,
-            hours: res.hours,
-            timeSheetDetailID: res.timeSheetDetailID,
-            timeSheetID: res.timeSheetID
+          this.jobForm = this.formBuilder.group({
+            jobName: res.jobName,
+            address: res.address,
+            startDate: res.startDate,
+            endDate: res.endDate,
+            costEstimate: res.costEstimate,
+            clientID: res.clientID
           });
         },
         error => {
@@ -36,9 +38,9 @@ export class EditJobComponent implements OnInit {
     }
 
     save() {
-      this.timeSheetDetailService.update(this.timeSheetDetailForm.value).subscribe(
+      this.jobService.update(this.jobForm.value).subscribe(
         res => {
-          this.router.navigate(['index']);
+          this.router.navigate(['/editjob/']);
         },
         error => {
           console.log(error);

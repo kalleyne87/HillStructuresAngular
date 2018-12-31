@@ -21,6 +21,7 @@ export class Job {
     startDate: Date;
     endDate: Date;
     costEstimate: number;
+    clientID: number;
     client: Client;
     timeSheets: TimeSheet[];
     employeeJobs: EmployeeJob[];

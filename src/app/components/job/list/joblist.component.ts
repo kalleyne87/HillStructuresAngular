@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Job } from '../../../entities/entities';
 import { JobService } from "../../../services/job.service";
@@ -10,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class JobListComponent implements OnInit {
 
     jobs: Job[];
-    constructor(private jobService: JobService) {}
+    constructor(
+      private jobService: JobService,
+      private Router: Router) {}
 
     ngOnInit() {
       this.jobService.getAll().subscribe(
@@ -22,6 +25,10 @@ export class JobListComponent implements OnInit {
         }
       )
     }
+
+    edit(jobID: number) {
+      this.Router.navigate(['/editjob/' + jobID]);
+    } 
 
     delete(userId: number) {
       var result = confirm("Are you sure?");

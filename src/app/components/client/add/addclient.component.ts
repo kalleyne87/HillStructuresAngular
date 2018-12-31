@@ -19,17 +19,18 @@ export class AddClientComponent implements OnInit {
 
     ngOnInit() {
       this.clientForm = this.formBuilder.group({
-        workDate: '',
-        dayOfWeek: 0,
-        hours: 0,
-        timeSheetID: 42
+        firstName: '',
+        lastName: '',
+        address: '',
+        phoneNumber: '',
+        emailAddress: ''
       });
     }
 
     save() {
       this.clientService.create(this.clientForm.value).subscribe(
         res => {
-          this.router.navigate(['index']);
+          this.router.navigate(['/clientlist/']);
         },
         error => {
           console.log(error);
