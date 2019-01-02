@@ -1,8 +1,11 @@
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Job } from '../../../entities/entities';
 import { JobService } from "../../../services/job.service";
 import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   templateUrl: './joblist.component.html'
@@ -11,6 +14,10 @@ import { Component, OnInit } from '@angular/core';
 export class JobListComponent implements OnInit {
 
     jobs: Job[];
+    dataSource = new JobDataSource(this.jobService);
+
+    jobsList: MatTableDataSource<any>;
+    displayedColumns = ['jobName', 'address', 'startDate', 'endDate', 'costEstimate']
     constructor(
       private jobService: JobService,
       private Router: Router) {}
@@ -18,7 +25,7 @@ export class JobListComponent implements OnInit {
     ngOnInit() {
       this.jobService.getAll().subscribe(
         res => {
-          this.loadData();
+          this.jobs = res;
         },
         error => {
           alert(error);
@@ -30,7 +37,7 @@ export class JobListComponent implements OnInit {
       this.Router.navigate(['/editjob/' + jobID]);
     } 
 
-    delete(userId: number) {
+    /*delete(userId: number) {
       var result = confirm("Are you sure?");
       if(result) {
         this.jobService.delete(userId).subscribe(
@@ -44,7 +51,7 @@ export class JobListComponent implements OnInit {
       }
     }
 
-    loadData() {
+    /*loadData() {
       this.jobService.getAll().subscribe(
         res => {
           this.jobs = res;
@@ -53,5 +60,17 @@ export class JobListComponent implements OnInit {
           alert(error);
         }
       )
-    }
+    }*/
+}
+
+export class JobDataSource extends DataSource<any> {
+  constructor(private jobService: JobService) {
+    super();
+  }
+
+  connect(): Observable<Job[]> {
+    return this.jobService.getAll();
+  }
+
+  disconnect() {} 
 }
