@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,8 +19,13 @@ import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/
 
 import { JobService } from "./services/job.service";
 import { ClientService } from './services/client.service';
+import { EmployeeService } from './services/employee.service';
+import { SupplierService } from './services/supplier.service';
+import { TimeSheetService } from './services/timeSheet.service';
+import { PaymentSheetService } from './services/paymentSheet.service';
+import { SubContractorService } from './services/subcontractor.service';
 import { TimeSheetDetailService } from './services/timeSheetDetail.service';
-
+import { PaymentSheetDetailService } from './services/paymentSheetDetail.service';
 
 
 @NgModule({
@@ -44,7 +50,13 @@ import { TimeSheetDetailService } from './services/timeSheetDetail.service';
   ],
   providers: [
     JobService,
-    ClientService, 
+    ClientService,
+    EmployeeService,
+    SupplierService,
+    TimeSheetService,
+    PaymentSheetService,
+    SubContractorService,
+    PaymentSheetDetailService,
     TimeSheetDetailService
   ],
   bootstrap: [AppComponent]

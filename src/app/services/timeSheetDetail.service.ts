@@ -23,18 +23,18 @@ export class TimeSheetDetailService {
                             .pipe(map(res => res as TimeSheetDetail));
     }    
 
-    create(timesheetDetail: TimeSheetDetail) {
-        return this.http.post(this.BASE_URL + 'create/', timesheetDetail)
+    create(timeSheetDetail: TimeSheetDetail) {
+        return this.http.post(this.BASE_URL + 'create/', timeSheetDetail)
                             .pipe(map(res => res as TimeSheetDetail));
     }
 
-    update(timesheetDetail: TimeSheetDetail) {
-        return this.http.put(this.BASE_URL + 'update/', timesheetDetail)
+    update(timeSheetDetail: TimeSheetDetail) {
+        return this.http.put(this.BASE_URL + 'update/', timeSheetDetail)
                             .pipe(map(res => res as TimeSheetDetail));
     }
 
-    delete(timesheetDetailID: number) {
-        return this.http.delete(this.BASE_URL + 'delete/' + timesheetDetailID)
+    delete(timeSheetDetailID: number) {
+        return this.http.delete(this.BASE_URL + 'delete/' + timeSheetDetailID)
                     .pipe(map(res => res as TimeSheetDetail));
     }
 }
