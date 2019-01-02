@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Client } from '../../../entities/entities';
 import { ClientService } from '../../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataSource } from '@angular/cdk/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   templateUrl: './clientlist.component.html'
@@ -11,6 +14,9 @@ import { Router } from '@angular/router';
 export class ClientListComponent implements OnInit {
 
     clients: Client[];
+    dataSource = new ClientDataSource(this.clientService);
+    displayedColumns = ['firstName', 'lastName', 'address', 'phoneNumber', 
+    'emailAddress', 'edit', 'delete'];
     constructor(
       private clientService: ClientService,
       private Router: Router
@@ -54,5 +60,17 @@ export class ClientListComponent implements OnInit {
           alert(error);
         }
       )
-    }
+    } 
+}
+
+export class ClientDataSource extends DataSource<any> {
+  constructor(private clientService: ClientService) {
+    super();
+  }
+
+  connect(): Observable<Client[]> {
+    return this.clientService.getAll();
+  }
+
+  disconnect() {} 
 }

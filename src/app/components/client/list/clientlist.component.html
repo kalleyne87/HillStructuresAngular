@@ -1,24 +1,37 @@
 <h2>Clients</h2>
 
 <p><a [routerLink]="['/addclient/']">Create a Client</a></p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>First Name</th> |
-            <th>Last Name</th> |
-            <th>Phone Number</th> |
-            <th>Email Address</th> |
-            <th>Address</th>            
-        </tr>
-        <tr *ngFor="let client of clients">
-            <td>{{client.firstName}}</td> |
-            <td>{{client.lastName}}</td> |
-            <td>{{client.phoneNumber}}</td> |
-            <td>{{client.emailAddress}}</td> |
-            <td>{{client.address}}</td>
-            <td>  <button type="button" (click)="edit(client.userID)">Edit</button> | 
-                <button type="button" (click)="delete(client.userID)">Delete</button>
-            </td>
-        </tr>
-    </thead>
-</table>
+<div>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.firstName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.lastName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.address }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phoneNumber">
+            <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.phoneNumber }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="emailAddress">
+            <mat-header-cell *matHeaderCellDef>Email Address</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.emailAddress }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+            <mat-cell *matCellDef="let client"><button mat-button (click)="edit(client.userID)">Edit</button></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+            <mat-cell *matCellDef="let client"><button mat-button (click)="delete(client.userID)">Delete</button></mat-cell>
+        </ng-container>        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+</div>

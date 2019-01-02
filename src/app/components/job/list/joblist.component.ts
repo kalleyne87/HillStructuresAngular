@@ -15,9 +15,8 @@ export class JobListComponent implements OnInit {
 
     jobs: Job[];
     dataSource = new JobDataSource(this.jobService);
-
-    jobsList: MatTableDataSource<any>;
-    displayedColumns = ['jobName', 'address', 'startDate', 'endDate', 'costEstimate']
+    displayedColumns = ['jobName', 'address', 'startDate', 'endDate',
+     'costEstimate', 'edit', 'delete'];
     constructor(
       private jobService: JobService,
       private Router: Router) {}
@@ -25,7 +24,7 @@ export class JobListComponent implements OnInit {
     ngOnInit() {
       this.jobService.getAll().subscribe(
         res => {
-          this.jobs = res;
+          this.loadData();
         },
         error => {
           alert(error);
@@ -37,7 +36,7 @@ export class JobListComponent implements OnInit {
       this.Router.navigate(['/editjob/' + jobID]);
     } 
 
-    /*delete(userId: number) {
+    delete(userId: number) {
       var result = confirm("Are you sure?");
       if(result) {
         this.jobService.delete(userId).subscribe(
@@ -51,7 +50,7 @@ export class JobListComponent implements OnInit {
       }
     }
 
-    /*loadData() {
+    loadData() {
       this.jobService.getAll().subscribe(
         res => {
           this.jobs = res;
@@ -60,7 +59,7 @@ export class JobListComponent implements OnInit {
           alert(error);
         }
       )
-    }*/
+    }
 }
 
 export class JobDataSource extends DataSource<any> {
