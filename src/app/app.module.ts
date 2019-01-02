@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTableModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatTableModule, MatButtonModule, 
+          MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -57,6 +58,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     MatSidenavModule,
     MatIconModule,
     MatTableModule,
+    MatInputModule,
     MatListModule
   ],
   providers: [

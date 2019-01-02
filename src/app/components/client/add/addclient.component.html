@@ -1,25 +1,23 @@
 <h2>Add a Client </h2>
 <div *ngIf="clientForm">
     <form [formGroup]="clientForm" (ngSubmit)="save()">
-        <table>
-            <tr>
-                <td>First Name</td>
-                <td>
-                    <input type="string" formControlName="firstName" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td>
-                    <input type="string" formControlName="lastName" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>
-                    <input type="string" formControlName="address" required="required" />
-                </td>
-            </tr>
+        <mat-form-field>
+            <input formControlName="firstName" matInput placeholder="First Name" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="lastName" matInput placeholder="Last Name" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="phoneNumber" matInput placeholder="Phone Number" required="required" />
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="emailAddress" matInput placeholder="Email Address" required="required" />
+        </mat-form-field>
+        <button mat-raised-button type="submit" value="Save">Submit</button>
+        <!---<table>
 
             <tr>
                 <td>Phone Number</td>
@@ -39,7 +37,7 @@
                     <input type="submit" value="Save" />
                 </td>
             </tr>                  
-        </table>
+        </table> -->
     </form>
     
 </div>
