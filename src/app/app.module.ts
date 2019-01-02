@@ -1,13 +1,16 @@
-
 import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddJobComponent } from './components/job/add/addjob.component';
+import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { EditJobComponent } from './components/job/edit/editjob.component';
 import { JobListComponent } from './components/job/list/joblist.component';
 import { AddClientComponent } from './components/client/add/addclient.component';
@@ -27,7 +30,6 @@ import { SubContractorService } from './services/subcontractor.service';
 import { TimeSheetDetailService } from './services/timeSheetDetail.service';
 import { PaymentSheetDetailService } from './services/paymentSheetDetail.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,13 +42,21 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     ClientListComponent,
     AddTimeSheetDetailComponent,
     EditTimeSheetDetailComponent,
-    TimeSheetDetailListComponent
+    TimeSheetDetailListComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     JobService,
