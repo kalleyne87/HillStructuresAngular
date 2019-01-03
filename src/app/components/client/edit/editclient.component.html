@@ -1,45 +1,28 @@
 <h2>Edit a Client </h2>
 <div *ngIf="clientForm">
     <form [formGroup]="clientForm" (ngSubmit)="save()">
-        <table>
-            <tr>
-                <td>First Name</td>
-                <td>
-                    <input type="string" formControlName="firstName" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td>
-                    <input type="string" formControlName="lastName" required="required" />
-                </td>
-            </tr>            
-            <tr>
-                <td>Address</td>
-                <td>
-                    <input type="string" formControlName="address" required="required" />
-                </td>
-            </tr>
-
-            <tr>
-                <td>Phone Number</td>
-                <td>
-                    <input type="string" formControlName="phoneNumber" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Email Address</td>
-                <td>
-                    <input type="string" formControlName="emailAddress" required="required" />
-                </td>
-            </tr>            
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Save" />
-                </td>
-            </tr>                  
-        </table>
-    </form>
-    
+        <div class="input-row">
+            <mat-form-field>
+                <input formControlName="firstName" matInput required="required" />
+            </mat-form-field>
+            <br/>   
+            <mat-form-field>
+                <input formControlName="lastName" matInput required="required" />
+            </mat-form-field>
+            <br/> 
+            <mat-form-field>
+                <input formControlName="address" matInput required="required" />
+            </mat-form-field>
+            <br/>         
+            <mat-form-field>
+                <input formControlName="phoneNumber" matInput  required="required" />
+            </mat-form-field>
+            <br/>         
+            <mat-form-field>
+                <input formControlName="emailAddress" matInput required="required" />
+            </mat-form-field>
+            <br/>             
+            <button mat-raised-button type="submit" value="Save">Submit</button>
+        </div>
+    </form>   
 </div>

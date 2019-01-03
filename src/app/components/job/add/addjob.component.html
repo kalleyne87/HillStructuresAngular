@@ -1,7 +1,34 @@
 <h2>Add a job</h2>
 
 <form [formGroup]="jobForm" (ngSubmit)="save()">
-    <table>
+    <div class="input-row">
+        <mat-form-field>
+            <input formControlName="jobName" matInput placeholder="Job" required="required" />
+        </mat-form-field>
+        <br/>    
+        <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address" required="required" />
+        </mat-form-field>
+        <br/> 
+        <mat-form-field>
+            <input matInput [matDatepicker]="startDate" placeholder="Choose a Start Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput [matDatepicker]="endDate" placeholder="Choose a End Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> 
+        <br/>
+        <mat-form-field>
+            <input formControlName="costEstimate" matInput placeholder="Cost Estimate" required="required" />
+        </mat-form-field>
+        <br/>           
+        <button mat-raised-button type="submit" value="Save">Submit</button>                                      
+    </div>    
+    <!---<table>
         <tr>
             <td>Work Date</td>
             <td>
@@ -26,5 +53,5 @@
                 <input type="submit" value="Save" />
             </td>
         </tr>                  
-    </table>
+    </table>-->
 </form>

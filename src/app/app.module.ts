@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTableModule, MatButtonModule, 
+import { MatToolbarModule, MatTableModule, MatButtonModule, MatDatepickerModule,
           MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -52,6 +52,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatDatepickerModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
