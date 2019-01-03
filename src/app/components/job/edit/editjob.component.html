@@ -1,32 +1,40 @@
-<h2>Edit TimeSheetDetail </h2>
-<div *ngIf="timeSheetDetailForm">
-    <form [formGroup]="timeSheetDetailForm" (ngSubmit)="save()">
-        <table>
-            <tr>
-                <td>Work Date</td>
-                <td>
-                    <input type="date" formControlName="workDate" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Day of Week</td>
-                <td>
-                    <input type="number" min="0" formControlName="dayOfWeek" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>Hours</td>
-                <td>
-                    <input type="number" min="0" formControlName="hours" required="required" />
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Save" />
-                </td>
-            </tr>                  
-        </table>
+<div class="container">
+    <h1>Edit</h1>
+    <form [formGroup]="jobForm" (ngSubmit)="save()">
+        <div class="input-row">
+            <mat-form-field>
+                <mat-select placeholder="Select a Client">
+                    <mat-option *ngFor="let client of clients" formControlName="clientID" value="clientID">
+                        {{ client.firstName }} {{ client.lastName }}
+                    </mat-option>
+                </mat-select>                
+            </mat-form-field>
+            <br/>              
+            <mat-form-field>
+                <input formControlName="jobName" matInput placeholder="Job" required="required" />
+            </mat-form-field>
+            <br/>    
+            <mat-form-field>
+                <input formControlName="address" matInput placeholder="Address" required="required" />
+            </mat-form-field>
+            <br/> 
+            <mat-form-field>
+                <input matInput [matDatepicker]="startDate" formControlName="startDate"  placeholder="Choose a Start Date">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <input matInput [matDatepicker]="endDate" formControlName="endDate" placeholder="Choose a End Date">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field> 
+            <br/>
+            <mat-form-field>
+                <input formControlName="costEstimate" matInput placeholder="Cost Estimate" required="required" />
+            </mat-form-field>
+            <br/>           
+            <button mat-raised-button type="submit" value="Save">Submit</button>                                      
+        </div>    
     </form>
-    
 </div>

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatTableModule, MatButtonModule, MatDatepickerModule,
-          MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
+  MatNativeDateModule, MatSelectModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -53,8 +53,10 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     LayoutModule,
     MatToolbarModule,
+    MatSelectModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -68,6 +70,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     EmployeeService,
     SupplierService,
     TimeSheetService,
+    MatDatepickerModule,
     PaymentSheetService,
     SubContractorService,
     PaymentSheetDetailService,
