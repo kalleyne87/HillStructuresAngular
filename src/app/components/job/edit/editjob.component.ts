@@ -29,31 +29,25 @@ export class EditJobComponent implements OnInit {
         res => {
           this.job = res;
           this.jobForm = this.formBuilder.group({
+            clientID: res.clientID,
+            jobID: res.jobID,
             jobName: res.jobName,
             address: res.address,
             startDate: res.startDate,
             endDate: res.endDate,
             costEstimate: res.costEstimate,
-            clientID: res.clientID
           });
         },
         error => {
           console.log(error);
-        });
-        this.clientService.getAll().subscribe( 
-          res => {
-            this.clients = res;
-          }, 
-          error => {
-            alert(error)
-          }
-        );
+        }
+      );
     }
 
     save() {
       this.jobService.update(this.jobForm.value).subscribe(
         res => {
-          this.router.navigate(['/editjob/']);
+          this.router.navigate(['/joblist/']);
         },
         error => {
           console.log(error);

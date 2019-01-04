@@ -21,7 +21,7 @@
         </ng-container>
         <ng-container matColumnDef="costEstimate">
             <mat-header-cell *matHeaderCellDef>Cost Estimate</mat-header-cell>
-            <mat-cell *matCellDef="let job">{{ job.costEstimate }}</mat-cell>
+            <mat-cell *matCellDef="let job">$ {{ job.costEstimate }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
@@ -29,7 +29,7 @@
         </ng-container>
         <ng-container matColumnDef="delete">
             <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-            <mat-cell *matCellDef="let job"><button mat-button (click)="delete(job.jobID)">Delete</button></mat-cell>
+            <mat-cell *matCellDef="let job"><mat-icon (click)="delete(job.jobID)">delete</mat-icon></mat-cell>
         </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>

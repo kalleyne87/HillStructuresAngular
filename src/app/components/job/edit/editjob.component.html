@@ -1,15 +1,7 @@
-<div class="container">
-    <h1>Edit</h1>
+<div class="container" *ngIf="jobForm">
+    <h1>Edit {{ job.jobName }}</h1>
     <form [formGroup]="jobForm" (ngSubmit)="save()">
-        <div class="input-row">
-            <mat-form-field>
-                <mat-select placeholder="Select a Client">
-                    <mat-option *ngFor="let client of clients" formControlName="clientID" value="clientID">
-                        {{ client.firstName }} {{ client.lastName }}
-                    </mat-option>
-                </mat-select>                
-            </mat-form-field>
-            <br/>              
+        <div class="input-row">         
             <mat-form-field>
                 <input formControlName="jobName" matInput placeholder="Job" required="required" />
             </mat-form-field>

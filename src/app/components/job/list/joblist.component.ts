@@ -1,14 +1,13 @@
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
 import { Job } from '../../../entities/entities';
 import { JobService } from "../../../services/job.service";
 import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  templateUrl: './joblist.component.html'
+  templateUrl: './joblist.component.html',
+  styleUrls: ['./joblist.component.css']  
 })
 
 export class JobListComponent implements OnInit {
