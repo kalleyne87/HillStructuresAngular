@@ -8,7 +8,8 @@ import { DataSource } from '@angular/cdk/table';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  templateUrl: './clientlist.component.html'
+  templateUrl: './clientlist.component.html',
+  styleUrls: ['./clientlist.component.css']  
 })
 
 export class ClientListComponent implements OnInit {
@@ -16,7 +17,7 @@ export class ClientListComponent implements OnInit {
     clients: Client[];
     dataSource = new ClientDataSource(this.clientService);
     displayedColumns = ['firstName', 'lastName', 'address', 'phoneNumber', 
-    'emailAddress', 'edit', 'delete'];
+    'emailAddress', 'edit', 'addJob'];
     constructor(
       private clientService: ClientService,
       private Router: Router
