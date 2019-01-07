@@ -45,3 +45,9 @@ mat-header-cell:nth-child(7) {
     justify-content:center;
 }
 
+mat-icon {
+    color: white;
+}
+button {
+    background-color: #3f51b5;
+}

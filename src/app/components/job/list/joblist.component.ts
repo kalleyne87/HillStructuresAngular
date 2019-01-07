@@ -15,7 +15,7 @@ export class JobListComponent implements OnInit {
     jobs: Job[];
     dataSource = new JobDataSource(this.jobService);
     displayedColumns = ['jobName', 'address', 'startDate', 'endDate',
-     'costEstimate', 'edit', 'delete'];
+     'costEstimate', 'edit'];
     constructor(
       private jobService: JobService,
       private Router: Router) {}

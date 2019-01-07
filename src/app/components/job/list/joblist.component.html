@@ -24,12 +24,14 @@
             <mat-cell *matCellDef="let job">$ {{ job.costEstimate }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
-            <mat-cell *matCellDef="let job"><button mat-button (click)="edit(job.jobID)">Edit</button></mat-cell>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let job"><button mat-icon-button><mat-icon (click)="edit(job.jobID)">edit</mat-icon></button> 
+                                            <button mat-icon-button><mat-icon (click)="delete(job.jobID)">delete</mat-icon></button>
+            </mat-cell>
         </ng-container>
         <ng-container matColumnDef="delete">
             <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-            <mat-cell *matCellDef="let job"><mat-icon (click)="delete(job.jobID)">delete</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let job"></mat-cell>
         </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
