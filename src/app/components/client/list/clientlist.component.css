@@ -1,7 +1,12 @@
 .container {
     margin-left: 75px;
 }
+a {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 
+}
 mat-cell:nth-child(1),
 mat-header-cell:nth-child(1),
 {

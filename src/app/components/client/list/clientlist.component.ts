@@ -1,3 +1,4 @@
+import { ClientDetailComponent } from './../detail/clientdetail.component';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../../../entities/entities';
@@ -5,7 +6,11 @@ import { ClientService } from '../../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material';
+
+export interface ClientData {
+  userID: number;
+}
 
 @Component({
   templateUrl: './clientlist.component.html',
@@ -20,7 +25,8 @@ export class ClientListComponent implements OnInit {
     'emailAddress', 'edit', 'addJob'];
     constructor(
       private clientService: ClientService,
-      private Router: Router
+      private Router: Router,
+      private dialog: MatDialog
               ) {}
 
     ngOnInit() {
@@ -32,6 +38,17 @@ export class ClientListComponent implements OnInit {
           alert(error);
         }
       )
+    }
+
+    showDetails(userID: number): void {
+      let dialogRef = this.dialog.open(ClientDetailComponent, {
+        width: '900px',
+        data: { userID: userID }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
     }
 
     edit(userID: number) {

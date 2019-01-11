@@ -1,0 +1,44 @@
+
+<div *ngIf="client"> 
+        <h1 mat-dialog-title>{{ client.firstName }} {{ client.lastName }} </h1>
+        <mat-dialog-content>
+                <hr />
+                <p> <b>Phone Number: </b>{{ client.phoneNumber }} </p>
+                <p><b>Email Address: </b>{{ client.emailAddress }} </p>
+                <p><b>Address: </b>{{ client.address }}</p>
+                <hr />
+                <h3>Jobs</h3>
+                <table>
+                        <thead>
+                                <tr>
+                                        <th>
+                                        Job Name
+                                        </th>
+                                        <th>
+                                        Job Details
+                                        </th>
+                                        <th>
+                                        Start Date
+                                        </th>
+                                        <th>
+                                        End Date
+                                        </th>
+                                        <th>
+                                        Cost Estimate
+                                        </th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let job of client.jobs; let i = index"> 
+                                        <td>{{ job.jobName }}</td>
+                                        <td><a [routerLink]="['/joblist/']">View Details</a></td>
+                                        <td>{{ job.startDate }}</td>
+                                        <td>{{ job.endDate }}</td>
+                                        <td>{{ job.costEstimate }}</td>
+                                </tr>
+                        </tbody>
+                </table>
+        </mat-dialog-content>    
+</div>
+
+

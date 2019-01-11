@@ -5,7 +5,7 @@
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="firstName">
             <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.firstName }}</mat-cell>
+            <mat-cell *matCellDef="let client"><a (click)="showDetails(client.userID)">{{ client.firstName }}</a></mat-cell>
         </ng-container>
         <ng-container matColumnDef="lastName">
             <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>

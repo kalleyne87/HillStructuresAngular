@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatChipsModule, MatTableModule, MatButtonModule, MatDatepickerModule,
-  MatNativeDateModule, MatSelectModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
+  MatNativeDateModule, MatSelectModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule, MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,6 +17,7 @@ import { JobListComponent } from './components/job/list/joblist.component';
 import { AddClientComponent } from './components/client/add/addclient.component';
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
+import { ClientDetailComponent } from './components/client/detail/clientdetail.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -41,6 +42,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     AddClientComponent,
     EditClientComponent,
     ClientListComponent,
+    ClientDetailComponent,
     AddTimeSheetDetailComponent,
     EditTimeSheetDetailComponent,
     TimeSheetDetailListComponent,
@@ -63,7 +65,8 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     MatIconModule,
     MatTableModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [
     JobService,
@@ -76,6 +79,9 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     SubContractorService,
     PaymentSheetDetailService,
     TimeSheetDetailService
+  ],
+  entryComponents: [
+    ClientDetailComponent
   ],
   bootstrap: [AppComponent]
 })
