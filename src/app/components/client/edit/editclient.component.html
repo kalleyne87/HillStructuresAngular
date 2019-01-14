@@ -1,5 +1,5 @@
-<h2>Edit a Client </h2>
 <div *ngIf="clientForm">
+    <h1>Edit  {{client.firstName }} {{ client.lastName }}</h1>
     <form [formGroup]="clientForm" (ngSubmit)="save()">
         <div class="input-row">
             <mat-form-field>
@@ -22,7 +22,7 @@
                 <input formControlName="emailAddress" matInput required="required" />
             </mat-form-field>
             <br/>             
-            <button mat-raised-button type="submit" value="Save">Submit</button>
+            <button mat-raised-button color="accent" type="submit" value="Save">Submit</button>
         </div>
     </form>   
 </div>

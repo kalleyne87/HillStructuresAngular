@@ -1,6 +1,6 @@
-<h2>Jobs</h2>
+<h1>Jobs</h1>
 
-<a [routerLink]="['/addjob/']">Create a Job</a>
+<p class="createJob"><button mat-raised-button color="accent" (click)="createJob()">Create a Job</button></p>
 <div>
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="jobName">
@@ -13,15 +13,11 @@
         </ng-container>
         <ng-container matColumnDef="startDate">
             <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
-            <mat-cell *matCellDef="let job">{{ job.startDate }}</mat-cell>
+            <mat-cell *matCellDef="let job">{{ job.startDate | date }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="endDate">
             <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
-            <mat-cell *matCellDef="let job">{{ job.endDate }}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="costEstimate">
-            <mat-header-cell *matHeaderCellDef>Cost Estimate</mat-header-cell>
-            <mat-cell *matCellDef="let job">$ {{ job.costEstimate }}</mat-cell>
+            <mat-cell *matCellDef="let job">{{ job.endDate | date }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -29,9 +25,14 @@
                                             <button mat-icon-button><mat-icon (click)="delete(job.jobID)">delete</mat-icon></button>
             </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-            <mat-cell *matCellDef="let job"></mat-cell>
+        <ng-container matColumnDef="add">
+            <mat-header-cell class="adds" *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="details(client.userID)">View Details</button>
+                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Sub-Contractor</button>
+                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Employee</button>
+                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Supplier</button>
+                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add TimeSheet</button>
+                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add PaySheet</button></mat-cell>
         </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>

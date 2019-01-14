@@ -6,12 +6,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  templateUrl: './editclient.component.html'
+  templateUrl: './editclient.component.html',
+  styleUrls: ['./editclient.component.css'] 
 })
 
 export class EditClientComponent implements OnInit {
 
     clientForm: FormGroup;
+    client: Client;
     constructor(
         private formBuilder: FormBuilder,
         private clientService: ClientService,
@@ -30,6 +32,7 @@ export class EditClientComponent implements OnInit {
             emailAddress: res.emailAddress,
             userID: res.userID
           });
+          this.client = res;
         },
         error => {
           console.log(error);

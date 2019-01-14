@@ -1,10 +1,12 @@
 
-<div *ngIf="client"> 
+<div *ngIf="client">
         <h1>{{ client.firstName }} {{ client.lastName }}</h1>
-        <hr />
-        <p> <b>Phone Number: </b>{{ client.phoneNumber }} </p>
-        <p><b>Email Address: </b>{{ client.emailAddress }} </p>
-        <p><b>Address: </b>{{ client.address }}</p>
+        <hr /> 
+        <div class="clientInfo">
+                <p> <b>Phone Number: </b>{{ client.phoneNumber }} </p>
+                <p><b>Email Address: </b>{{ client.emailAddress }} </p>
+                <p><b>Address: </b>{{ client.address }}</p>
+        </div>
         <hr />
         <div>
                 <mat-table [dataSource]="dataSource">
@@ -12,21 +14,25 @@
                                 <mat-header-cell *matHeaderCellDef>Job Name</mat-header-cell>
                                 <mat-cell *matCellDef="let job">{{ job.jobName }}</mat-cell>
                         </ng-container>
-                        <ng-container matColumnDef="jobDetail">
-                                <mat-header-cell *matHeaderCellDef>Job Details</mat-header-cell>
-                                <mat-cell *matCellDef="let job"><a [routerLink]="['/joblist/']">View Details</a></mat-cell>
+                        <ng-container matColumnDef="address">
+                                <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+                                <mat-cell *matCellDef="let job">{{ job.address }}</mat-cell>
                         </ng-container>
                         <ng-container matColumnDef="startDate">
                                 <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
-                                <mat-cell *matCellDef="let job">{{ job.startDate }}</mat-cell>
+                                <mat-cell *matCellDef="let job">{{ job.startDate | date }}</mat-cell>
                         </ng-container>
                         <ng-container matColumnDef="endDate">
                                 <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
-                                <mat-cell *matCellDef="let job">{{ job.endDate }}</mat-cell>
+                                <mat-cell *matCellDef="let job">{{ job.endDate | date }}</mat-cell>
                         </ng-container>
                         <ng-container matColumnDef="costEstimate">
                                 <mat-header-cell *matHeaderCellDef>Cost Estimate</mat-header-cell>
-                                <mat-cell *matCellDef="let job">{{ job.costEstimate }}</mat-cell>
+                                <mat-cell id="money" *matCellDef="let job">{{ job.costEstimate | currency }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="jobDetails">
+                                        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                        <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="jobdetails(job.jobID)">View Details</button></mat-cell>
                         </ng-container> 
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>                                                               
