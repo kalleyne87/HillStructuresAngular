@@ -2,6 +2,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JobListComponent } from './components/job/list/joblist.component';
 import { AddJobComponent } from './components/job/add/addjob.component';
 import { EditJobComponent } from './components/job/edit/editjob.component';
+import { ClientDetailComponent } from './components/client/detail/clientdetail.component';
 import { AddClientComponent } from './components/client/add/addclient.component';
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'editclient/:userID',
     component: EditClientComponent
+  },
+  {
+    path: 'clientdetail/:userID',
+    component: ClientDetailComponent
   },
   {
     path: 'joblist',

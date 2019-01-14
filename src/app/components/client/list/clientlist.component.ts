@@ -1,4 +1,4 @@
-import { ClientDetailComponent } from './../detail/clientdetail.component';
+import { ClientDetailDialogComponent } from './../detail/clientdetaildialog.component';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../../../entities/entities';
@@ -41,7 +41,7 @@ export class ClientListComponent implements OnInit {
     }
 
     showDetails(userID: number): void {
-      let dialogRef = this.dialog.open(ClientDetailComponent, {
+      let dialogRef = this.dialog.open(ClientDetailDialogComponent, {
         width: '900px',
         data: { userID: userID }
       });
@@ -51,7 +51,15 @@ export class ClientListComponent implements OnInit {
       });
     }
 
-    edit(userID: number) {
+    createClient():void {
+      this.Router.navigate(['/addclient/']);
+    }
+    
+    details(userID: number): void {
+      this.Router.navigate(['/clientdetail/' + userID]);
+    }
+
+    edit(userID: number): void {
       this.Router.navigate(['/editclient/' + userID]);
     } 
 

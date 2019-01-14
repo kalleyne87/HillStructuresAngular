@@ -3,13 +3,27 @@
 }
 a {
     cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-
 }
+
+h1 {
+    font-size:35px;
+    margin-left: 20px;
+}
+
+.createClient {
+    margin-left: 20px;
+}
+
+mat-header-cell {
+    font-weight: bold;
+    font-size: 15px;   
+}
+button {
+    margin-right: 10px;
+}
+
 mat-cell:nth-child(1),
-mat-header-cell:nth-child(1),
-{
+mat-header-cell:nth-child(1) {
     display: flex;
     justify-content:center;
 }

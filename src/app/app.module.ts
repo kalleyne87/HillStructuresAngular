@@ -18,6 +18,7 @@ import { AddClientComponent } from './components/client/add/addclient.component'
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
 import { ClientDetailComponent } from './components/client/detail/clientdetail.component';
+import { ClientDetailDialogComponent } from './components/client/detail/clientdetaildialog.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -32,6 +33,7 @@ import { SubContractorService } from './services/subcontractor.service';
 import { TimeSheetDetailService } from './services/timeSheetDetail.service';
 import { PaymentSheetDetailService } from './services/paymentSheetDetail.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     EditClientComponent,
     ClientListComponent,
     ClientDetailComponent,
+    ClientDetailDialogComponent,
     AddTimeSheetDetailComponent,
     EditTimeSheetDetailComponent,
     TimeSheetDetailListComponent,
@@ -81,7 +84,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     TimeSheetDetailService
   ],
   entryComponents: [
-    ClientDetailComponent
+    ClientDetailDialogComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
-<h2>Clients</h2>
+<h1>Clients</h1>
 
-<p><a [routerLink]="['/addclient/']">Create a Client</a></p>
+<p class="createClient"><button mat-raised-button color="accent" (click)="createClient()">Create a Client</button></p>
 <div>
     <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="firstName">
@@ -9,19 +9,19 @@
         </ng-container>
         <ng-container matColumnDef="lastName">
             <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.lastName }}</mat-cell>
+            <mat-cell *matCellDef="let client"><a (click)="showDetails(client.userID)">{{ client.lastName }}</a></mat-cell>
         </ng-container>
         <ng-container matColumnDef="address">
             <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.address }}</mat-cell>
+            <mat-cell *matCellDef="let client"><a (click)="showDetails(client.userID)">{{ client.address }}</a></mat-cell>
         </ng-container>
         <ng-container matColumnDef="phoneNumber">
             <mat-header-cell *matHeaderCellDef>Phone Number</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.phoneNumber }}</mat-cell>
+            <mat-cell *matCellDef="let client"><a (click)="showDetails(client.userID)">{{ client.phoneNumber }}</a></mat-cell>
         </ng-container>
         <ng-container matColumnDef="emailAddress">
             <mat-header-cell *matHeaderCellDef>Email Address</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.emailAddress }}</mat-cell>
+            <mat-cell *matCellDef="let client"><a (click)="showDetails(client.userID)">{{ client.emailAddress }}</a></mat-cell>
         </ng-container>
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -31,7 +31,8 @@
         </ng-container>
         <ng-container matColumnDef="addJob">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let client"><button mat-raised-button color="accent" (click)="delete(client.userID)">Add a Job</button>                   
+            <mat-cell *matCellDef="let client"><button mat-raised-button color="accent" (click)="details(client.userID)">View Details</button>
+                                                <button mat-raised-button color="accent" (click)="delete(client.userID)">Add a Job</button>                   
             </mat-cell>
         </ng-container>         
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
