@@ -17,6 +17,7 @@ import { JobListComponent } from './components/job/list/joblist.component';
 import { AddClientComponent } from './components/client/add/addclient.component';
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
+import { AddJobClientComponent } from './components/client/add/addjobclient.component';
 import { ClientDetailComponent } from './components/client/detail/clientdetail.component';
 import { ClientDetailDialogComponent } from './components/client/detail/clientdetaildialog.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
@@ -45,6 +46,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     EditClientComponent,
     ClientListComponent,
     ClientDetailComponent,
+    AddJobClientComponent,
     ClientDetailDialogComponent,
     AddTimeSheetDetailComponent,
     EditTimeSheetDetailComponent,

@@ -54,6 +54,10 @@ export class ClientListComponent implements OnInit {
     createClient():void {
       this.Router.navigate(['/addclient/']);
     }
+
+    addJob(userID: number): void {
+      this.Router.navigate(['/addjobclient/' + userID]);
+    }
     
     details(userID: number): void {
       this.Router.navigate(['/clientdetail/' + userID]);

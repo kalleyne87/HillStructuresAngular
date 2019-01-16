@@ -6,6 +6,7 @@ import { ClientDetailComponent } from './components/client/detail/clientdetail.c
 import { AddClientComponent } from './components/client/add/addclient.component';
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
+import { AddJobClientComponent } from './components/client/add/addjobclient.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'clientdetail/:userID',
     component: ClientDetailComponent
+  },
+  {
+    path: 'addjobclient/:userID',
+    component: AddJobClientComponent
   },
   {
     path: 'joblist',

@@ -28,11 +28,7 @@
         <ng-container matColumnDef="add">
             <mat-header-cell class="adds" *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="details(client.userID)">View Details</button>
-                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Sub-Contractor</button>
-                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Employee</button>
-                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add Supplier</button>
-                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add TimeSheet</button>
-                                            <button mat-raised-button color="accent" (click)="delete(client.userID)">Add PaySheet</button></mat-cell>
+                                            <button mat-raised-button color="accent" (click)="addItems(client.userID)">Add Items</button></mat-cell>
         </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
