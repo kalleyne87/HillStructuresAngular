@@ -1,0 +1,33 @@
+
+<div *ngIf="job"> 
+        <h1 mat-dialog-title>{{ job.jobName }} </h1>
+        <mat-dialog-content>
+                <hr />
+                <p> <b>Address: </b>{{ job.address }} </p>
+                <p><b>Start Date: </b>{{ job.startDate }} </p>
+                <p><b>End Date: </b>{{ job.endDate }}</p>
+                <p><b>Cost Estimate: </b>{{ job.costEstimate }}</p>
+                <hr />
+                <h3>Employees</h3>
+                <table>
+                        <thead>
+                                <tr>
+                                        <th>
+                                        Employee Name
+                                        </th>
+                                        <th>
+                                        Employee Details
+                                        </th>
+                                        <th>
+                                        Total Current Payment
+                                        </th>
+                                </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                </table>
+        </mat-dialog-content>    
+</div>
+
+

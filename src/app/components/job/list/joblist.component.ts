@@ -4,6 +4,8 @@ import { Job } from '../../../entities/entities';
 import { JobService } from "../../../services/job.service";
 import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
+import { MatDialog } from '@angular/material';
+import { JobDetailDialogComponent } from './../detail/jobdetaildialog.component';
 
 @Component({
   templateUrl: './joblist.component.html',
@@ -18,7 +20,8 @@ export class JobListComponent implements OnInit {
      'edit', 'add'];
     constructor(
       private jobService: JobService,
-      private Router: Router) {}
+      private Router: Router,
+      private dialog: MatDialog) {}
 
     ngOnInit() {
       this.jobService.getAll().subscribe(
@@ -31,6 +34,17 @@ export class JobListComponent implements OnInit {
       )
     }
 
+    showDetails(jobID: number): void {
+      let dialogRef = this.dialog.open(JobDetailDialogComponent, {
+        width: '900px',
+        data: { jobID: jobID }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    }
+
     createJob(): void {
       this.Router.navigate(['/addjob/']);
     }
@@ -39,17 +53,33 @@ export class JobListComponent implements OnInit {
       this.Router.navigate(['/editjob/' + jobID]);
     } 
 
-    delete(userId: number) {
-      var result = confirm("Are you sure?");
-      if(result) {
-        this.jobService.delete(userId).subscribe(
-          res => {
-            this.loadData();
-          },
-          error => {
-            alert(error);
-          }
-        )
+    delete(job: Job) {
+      if(job.employeeJobs.length > 0 && job.subContractorJobs.length > 0 && job.supplierJobs.length > 0 ) {
+          alert(job.jobName + ' ' + "has employees, sub-contractors, and suppliers please remove first");
+        } else if (job.employeeJobs.length > 0 && job.subContractorJobs.length > 0) {
+          alert(job.jobName + ' ' + "has employees and sub-contractors, please remove first");
+        } else if (job.employeeJobs.length > 0 && job.supplierJobs.length > 0) {
+          alert(job.jobName + ' ' + "has employees and suppliers, please remove first");
+        } else if (job.subContractorJobs.length > 0 && job.supplierJobs.length > 0) {
+          alert(job.jobName + ' ' + "has sub-contractors and suppliers, please remove first");
+        } else if (job.employeeJobs.length > 0 ) {
+          alert(job.jobName + ' ' + "has employees, please remove the employees first");
+        } else if (job.subContractorJobs.length > 0) {
+          alert(job.jobName + ' ' + "has sub-contractors, please remove the sub-contractors first");
+        } else if (job.supplierJobs.length > 0) {
+          alert(job.jobName + ' ' + "has suppliers, please remove the suppliers first");
+      } else {
+        var result = confirm("Are you sure?");
+        if(result) {
+          this.jobService.delete(job.jobID).subscribe(
+            res => {
+              this.loadData();
+            },
+            error => {
+              alert(error);
+            }
+          )
+        }
       }
     }
 
