@@ -14,6 +14,7 @@ export class AddJobClientComponent implements OnInit {
 
   jobForm: FormGroup;
   clients: Client[] = [];
+  selectedClient: number;
   userID: number
   constructor(
       private formBuilder: FormBuilder,
@@ -27,24 +28,19 @@ export class AddJobClientComponent implements OnInit {
     this.clientService.get(this.userID).subscribe(
       res => {
         this.clients.push(res);
-        this.jobForm = this.formBuilder.group({
-          clientID: this.userID,
-          jobName: '',
-          address: '',
-          startDate: '',
-          endDate: '',
-          costEstimate: 0,
-          client: res
-        });
-        const toSelect = this.clients.find(c => c.userID == this.userID);
-        this.jobForm.get('client').setValue(toSelect);
+        this.selectedClient = this.clients[0].userID;
       },
       error => {
         console.log(error);
-      }
-    )
-
-
+      })
+      this.jobForm = this.formBuilder.group({
+        clientID: this.selectedClient,
+        jobName: '',
+        address: '',
+        startDate: '',
+        endDate: '',
+        costEstimate: 0
+      });
   }
 
   save() {

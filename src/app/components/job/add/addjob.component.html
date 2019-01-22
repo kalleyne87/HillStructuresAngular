@@ -3,8 +3,8 @@
     <form [formGroup]="jobForm" (ngSubmit)="save()">
         <div class="input-row">
             <mat-form-field>
-                <mat-select placeholder="Select a Client">
-                    <mat-option *ngFor="let client of clients" value="clientID">
+                <mat-select placeholder="Select a Client" formControlName="clientID">
+                    <mat-option *ngFor="let client of clients" value="{{ client.userID }}">
                         {{ client.firstName }} {{ client.lastName }}
                     </mat-option>
                 </mat-select>                

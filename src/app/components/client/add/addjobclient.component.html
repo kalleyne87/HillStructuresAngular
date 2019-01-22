@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="selectedClient">
     <h1>Add a Job</h1>
-    <form [formGroup]="jobForm" (ngSubmit)="save()">
+    <form [formGroup]="jobForm" (ngSubmit)="save()" >
         <div class="input-row">
             <mat-form-field>
-                <mat-select placeholder="Select a Client" formControlName="client">
-                    <mat-option *ngFor="let client of clients" [value]="client.userID">
+                <mat-select placeholder="Select a Client" [(value)]="selectedClient" formControlName="clientID">
+                    <mat-option *ngFor="let client of clients"  value="client.userID">
                         {{ client.firstName }} {{ client.lastName }}
                     </mat-option>
                 </mat-select>                
