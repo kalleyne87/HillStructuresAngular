@@ -26,7 +26,7 @@
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let client"><button mat-icon-button><mat-icon (click)="edit(client.userID)">edit</mat-icon></button> 
-                                               <button mat-icon-button><mat-icon (click)="delete(client.userID)">delete</mat-icon></button>
+                                               <button mat-icon-button><mat-icon (click)="delete(client)">delete</mat-icon></button>
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="addJob">

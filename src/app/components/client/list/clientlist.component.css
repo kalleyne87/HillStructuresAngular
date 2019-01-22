@@ -5,13 +5,14 @@ a {
     cursor: pointer;
 }
 
+
 h1 {
     font-size:35px;
-    margin-left: 20px;
+    margin-left: 75px;
 }
 
 .createClient {
-    margin-left: 20px;
+    margin-left: 75px;
 }
 
 mat-header-cell {
@@ -20,6 +21,10 @@ mat-header-cell {
 }
 button {
     margin-right: 10px;
+}
+
+mat-header-cell {
+    font-size:17px;
 }
 
 mat-cell:nth-child(1),

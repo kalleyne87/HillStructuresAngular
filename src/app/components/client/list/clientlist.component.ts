@@ -67,17 +67,22 @@ export class ClientListComponent implements OnInit {
       this.Router.navigate(['/editclient/' + userID]);
     } 
 
-    delete(userID: number) {
-      var result = confirm("Are you sure?");
-      if(result) {
-        this.clientService.delete(userID).subscribe(
-          res => {
-            this.loadData();
-          },
-          error => {
-            alert(error);
-          }
-        )
+    delete(client) {
+      if(client.jobs.length > 0) {
+        alert(client.firstName + ' ' + client.lastName + ' ' 
+        + "has jobs, please remove the jobs first");
+      } else {
+        var result = confirm("Are you sure?");
+        if(result) {
+          this.clientService.delete(client.userID).subscribe(
+            res => {
+              this.loadData();
+            },
+            error => {
+              alert(error);
+            }
+          )
+        }
       }
     }
 

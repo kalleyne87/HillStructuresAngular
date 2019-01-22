@@ -6,7 +6,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './addclient.component.html'
+  templateUrl: './addclient.component.html',
+  styleUrls: ['./addclient.component.css'] 
 })
 
 export class AddClientComponent implements OnInit {

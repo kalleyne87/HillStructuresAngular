@@ -1,14 +1,7 @@
 .container {
     margin-left: 75px;
-} 
-
-h1 {
-    font-size:35px;
 }
 
 mat-form-field {
     width: 300px !important;
 }
-
-
-

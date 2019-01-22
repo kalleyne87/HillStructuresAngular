@@ -1,4 +1,4 @@
-<div *ngIf="clientForm">
+<div class="container" *ngIf="clientForm">
     <h1>Edit  {{client.firstName }} {{ client.lastName }}</h1>
     <form [formGroup]="clientForm" (ngSubmit)="save()">
         <div class="input-row">

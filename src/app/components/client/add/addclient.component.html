@@ -1,29 +1,31 @@
-<h1>Add a Client </h1>
-<br/>
-<div *ngIf="clientForm">
-    <form [formGroup]="clientForm" (ngSubmit)="save()">
-        <div class="input-row">
-            <mat-form-field>
-                <input formControlName="firstName" matInput placeholder="First Name" required="required" />
-            </mat-form-field>
-            <br/>   
-            <mat-form-field>
-                <input formControlName="lastName" matInput placeholder="Last Name" required="required" />
-            </mat-form-field>
-            <br/> 
-            <mat-form-field>
-                <input formControlName="address" matInput placeholder="Address" required="required" />
-            </mat-form-field>
-            <br/>         
-            <mat-form-field>
-                <input formControlName="phoneNumber" matInput placeholder="Phone Number" required="required" />
-            </mat-form-field>
-            <br/>         
-            <mat-form-field>
-                <input formControlName="emailAddress" matInput placeholder="Email Address" required="required" />
-            </mat-form-field>
-            <br/>             
-            <button mat-raised-button type="submit" value="Save">Submit</button>
-        </div>
-    </form>
+<div class="container">
+    <h1>Add a Client </h1>
+    <br/>
+    <div *ngIf="clientForm">
+        <form [formGroup]="clientForm" (ngSubmit)="save()">
+            <div class="input-row">
+                <mat-form-field>
+                    <input formControlName="firstName" matInput placeholder="First Name" required="required" />
+                </mat-form-field>
+                <br/>   
+                <mat-form-field>
+                    <input formControlName="lastName" matInput placeholder="Last Name" required="required" />
+                </mat-form-field>
+                <br/> 
+                <mat-form-field>
+                    <input formControlName="address" matInput placeholder="Address" required="required" />
+                </mat-form-field>
+                <br/>         
+                <mat-form-field>
+                    <input formControlName="phoneNumber" matInput placeholder="Phone Number" required="required" />
+                </mat-form-field>
+                <br/>         
+                <mat-form-field>
+                    <input formControlName="emailAddress" matInput placeholder="Email Address" required="required" />
+                </mat-form-field>
+                <br/>             
+                <button mat-raised-button color="accent" type="submit" value="Save">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
