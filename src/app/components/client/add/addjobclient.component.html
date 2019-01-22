@@ -1,13 +1,9 @@
-<div class="container" *ngIf="selectedClient">
-    <h1>Add a Job</h1>
+<div class="container" *ngIf="client">
+    <h1>Create job for {{ client.firstName }} {{ client.lastName }}</h1>
     <form [formGroup]="jobForm" (ngSubmit)="save()" >
         <div class="input-row">
             <mat-form-field>
-                <mat-select placeholder="Select a Client" [(value)]="selectedClient" formControlName="clientID">
-                    <mat-option *ngFor="let client of clients"  value="client.userID">
-                        {{ client.firstName }} {{ client.lastName }}
-                    </mat-option>
-                </mat-select>                
+                <input formControlName="clientName" matInput placeholder="Client" required="required" />
             </mat-form-field>
             <br/>              
             <mat-form-field>
@@ -31,10 +27,12 @@
             </mat-form-field> 
             <br/>
             <mat-form-field>
-                <input formControlName="costEstimate" matInput placeholder="Cost Estimate" required="required" />
+                <input formControlName="costEstimate" matInput placeholder="Cost Estimate" type="number" required="required" />
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
             </mat-form-field>
             <br/>           
-            <button mat-raised-button type="submit" value="Save">Submit</button>                                      
+            <button mat-raised-button color="accent"  type="submit" value="Save">Submit</button>                                      
         </div>    
     </form>
 </div>
