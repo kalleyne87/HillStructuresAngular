@@ -7,6 +7,10 @@ import { DataSource } from '@angular/cdk/table';
 import { MatDialog } from '@angular/material';
 import { JobDetailDialogComponent } from './../detail/jobdetaildialog.component';
 
+export interface JobData {
+  jobID: number;
+}
+
 @Component({
   templateUrl: './joblist.component.html',
   styleUrls: ['./joblist.component.css']  

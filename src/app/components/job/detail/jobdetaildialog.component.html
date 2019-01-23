@@ -4,9 +4,9 @@
         <mat-dialog-content>
                 <hr />
                 <p> <b>Address: </b>{{ job.address }} </p>
-                <p><b>Start Date: </b>{{ job.startDate }} </p>
-                <p><b>End Date: </b>{{ job.endDate }}</p>
-                <p><b>Cost Estimate: </b>{{ job.costEstimate }}</p>
+                <p><b>Start Date: </b>{{ job.startDate | date }} </p>
+                <p><b>End Date: </b>{{ job.endDate | date }}</p>
+                <p><b>Cost Estimate: </b><span id="money">{{ job.costEstimate | currency }}</span></p>
                 <hr />
                 <h3>Employees</h3>
                 <table>
@@ -24,7 +24,10 @@
                                 </tr>
                         </thead>
                         <tbody>
-
+                                <tr *ngFor="let employee of job.employees; let i = index">
+                                        <td>{{ employee.firstName }} {{ employee.lastName}}</td>
+                                        <td ><a>View Details</a></td>
+                                </tr>
                         </tbody>
                 </table>
         </mat-dialog-content>    

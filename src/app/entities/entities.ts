@@ -24,6 +24,9 @@ export class Job {
     clientID: number;
     client: Client;
     timeSheets: TimeSheet[];
+    employees: Employee[];
+    subContractors: SubContractor[];
+    supplier: Supplier[];
     employeeJobs: EmployeeJob[];
     subContractorJobs: SubContractorJob[];
     supplierJobs: SupplierJob[];

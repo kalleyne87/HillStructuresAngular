@@ -23,9 +23,10 @@ export class JobDetailDialogComponent implements OnInit {
         }
 
   ngOnInit() {
-      this.jobService.get(this.data.userID).subscribe(
+      this.jobService.get(this.data.jobID).subscribe(
         res => {
           this.job = res;
+          this.job.employees = this.jobService.getEmployees(this.job.jobID);
         },
         error => {
           alert(error);
