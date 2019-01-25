@@ -22,6 +22,10 @@ import { ClientDetailComponent } from './components/client/detail/clientdetail.c
 import { JobDetailComponent } from './components/job/detail/jobdetail.component';
 import { JobDetailDialogComponent } from './components/job/detail/jobdetaildialog.component';
 import { ClientDetailDialogComponent } from './components/client/detail/clientdetaildialog.component';
+import { EmployeeDetailComponent } from './components/employee/detail/employeedetail.component';
+import { EmployeeListComponent } from './components/employee/list/employeelist.component';
+import { EditEmployeeComponent } from './components/employee/edit/editemployee.component';
+import { AddEmployeeComponent } from './components/employee/add/addemployee.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -45,6 +49,10 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     JobListComponent,
     JobDetailComponent,
     JobDetailDialogComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent,
+    EmployeeDetailComponent,
+    EmployeeListComponent,
     HomeComponent,
     AddClientComponent,
     EditClientComponent,

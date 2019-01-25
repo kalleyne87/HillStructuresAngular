@@ -1,0 +1,21 @@
+mat-header-cell {
+    font-weight: bold;
+    font-size: 17px;   
+}
+
+.clientInfo {
+    margin-left:75px;
+}
+
+
+h1 {
+    font-size:35px;
+    margin-left: 75px;
+}
+
+h2 {
+    margin-left: 23px; 
+}
+#money {
+    color: green;
+}

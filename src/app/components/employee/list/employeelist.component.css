@@ -1,0 +1,74 @@
+.container {
+    margin-left: 75px;
+}
+
+h1 {
+    font-size:35px;
+    margin-left: 75px;
+}
+a {
+    cursor: pointer;
+}
+
+mat-header-cell {
+    font-weight: bold;
+    font-size: 15px;   
+}
+button {
+    margin-right: 10px;
+}
+
+.createJob {
+    margin-left: 75px;
+}
+
+mat-header-cell {
+    font-size:17px;
+}
+
+mat-cell:nth-child(1),
+mat-header-cell:nth-child(1) {
+    display: flex;
+    justify-content:center;
+}
+
+mat-cell:nth-child(2),
+mat-header-cell:nth-child(2) {
+    display: flex;
+    justify-content:center;
+}
+
+mat-cell:nth-child(3),
+mat-header-cell:nth-child(3) {
+    display: flex;
+    justify-content:center;
+}
+
+mat-cell:nth-child(4),
+mat-header-cell:nth-child(4) {
+    display: flex;
+    justify-content:center;
+}
+
+mat-cell:nth-child(5),
+mat-header-cell:nth-child(5) {
+    display: flex;
+    justify-content:center;
+}
+
+mat-cell:nth-child(6),
+mat-header-cell:nth-child(6) {
+
+}
+
+
+mat-icon {
+    color: white;
+}
+button {
+    background-color: #009688;
+}
+
+#money {
+    color: green;
+}

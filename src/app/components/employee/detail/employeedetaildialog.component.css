@@ -1,0 +1,17 @@
+table {
+    padding-left: 70px;
+}
+
+
+th {
+    padding-right: 45px;
+    text-align: center
+}
+td {
+    padding-right: 45px;
+    text-align: center;
+}
+
+#money {
+    color: green;
+}
