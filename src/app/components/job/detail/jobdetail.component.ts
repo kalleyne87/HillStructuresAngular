@@ -1,14 +1,14 @@
 import { JobDataSource } from '../list/joblist.component';
 import { Injectable, Inject } from '@angular/core';
-import { Client } from '../../../entities/entities';
+import { Job } from '../../../entities/entities';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ClientService } from '../../../services/client.service';
+import { JobService } from '../../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
-import { Job } from '../../../entities/entities';
+
 
 
 
@@ -21,14 +21,14 @@ import { Job } from '../../../entities/entities';
 
 export class JobDetailComponent implements OnInit {
 
-    userID: number;
-    client: Client;
+    jobID: number;
+    job: Job;
     displayedColumns: string [] = ['jobName', 'address', 'startDate', 'endDate', 
                                   'costEstimate', 'jobDetails'];
   
-    dataSource: JobSource;
+    //dataSource: JobSource;
     constructor(
-        public clientService: ClientService,
+        public jobService: JobService,
         private router: Router,
         private activatedRoute: ActivatedRoute) {
 
@@ -36,10 +36,10 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit() {
       var userID = this.activatedRoute.snapshot.params.userID;
-      this.clientService.get(userID).subscribe(
+      this.jobService.get(userID).subscribe(
         res => {
-          this.client = res;
-          this.dataSource = new JobSource(this.clientService, this.client.userID);
+          this.job = res;
+          //this.dataSource = new JobSource(this.jobService, this.job.jobID);
         },
         error => {
           alert(error);
@@ -53,7 +53,7 @@ export class JobDetailComponent implements OnInit {
 
 }
 
-export class JobSource extends DataSource<any> {
+/*export class JobSource extends DataSource<any> {
   constructor(public clientService: ClientService,
               public userID: number
               ) {
@@ -65,7 +65,7 @@ export class JobSource extends DataSource<any> {
   }
   disconnect() {}
 
-}
+}*/
 
 
 

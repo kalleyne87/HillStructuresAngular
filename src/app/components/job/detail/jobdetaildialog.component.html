@@ -13,10 +13,13 @@
                         <thead>
                                 <tr>
                                         <th>
-                                        Employee Name
+                                        First Name
                                         </th>
                                         <th>
-                                        Employee Details
+                                        Last Name
+                                        </th>
+                                        <th>
+                                        Email
                                         </th>
                                         <th>
                                         Total Current Payment
@@ -25,8 +28,10 @@
                         </thead>
                         <tbody>
                                 <tr *ngFor="let employee of job.employees; let i = index">
-                                        <td>{{ employee.firstName }} {{ employee.lastName}}</td>
-                                        <td ><a>View Details</a></td>
+                                        <td>{{ employee.firstName }} </td>
+                                        <td>{{ employee.lastName }} </td>
+                                        <td>{{ employee.emailAddress }} </td>                                        
+                                        <td>{{ employeeTotals(employee) }}</td>
                                 </tr>
                         </tbody>
                 </table>

@@ -57,6 +57,7 @@ export class TimeSheet {
     payRate: number;
     jobId: number;
     employee: Employee;
+    timeSheetDetails: TimeSheetDetail[];
 }
 
 export class TimeSheetDetail {
@@ -75,7 +76,7 @@ export class PaymentSheet {
     companyID: number;
     job: Job;
     company: Company;
-    paymentsheetdetails: PaymentSheetDetail[];
+    paymentSheetDetails: PaymentSheetDetail[];
 }
 
 export class PaymentSheetDetail {
