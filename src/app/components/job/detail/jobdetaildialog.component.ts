@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Job } from '../../../entities/entities';
+import { Job, Employee } from '../../../entities/entities';
 import { JobService } from '../../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -32,6 +32,16 @@ export class JobDetailDialogComponent implements OnInit {
           alert(error);
         }
       )
+  }
+
+  employeeTotals(employee: Employee): number {
+    let total = 0;
+    for(let ts of employee.timeSheets) {
+      for(let tsd of ts.timeSheetDetails) {
+        total += ts.payRate * tsd.hours;
+      }
+    }
+    return total;
   }
 }
 

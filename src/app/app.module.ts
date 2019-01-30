@@ -30,7 +30,7 @@ import { JobService } from "./services/job.service";
 import { ClientService } from './services/client.service';
 import { EmployeeService } from './services/employee.service';
 import { SupplierService } from './services/supplier.service';
-import { TimeSheetService } from './services/timeSheet.service';
+import { TimeSheetService } from './services/timesheet.service';
 import { PaymentSheetService } from './services/paymentSheet.service';
 import { SubContractorService } from './services/subcontractor.service';
 import { TimeSheetDetailService } from './services/timeSheetDetail.service';

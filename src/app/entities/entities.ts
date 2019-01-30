@@ -40,7 +40,7 @@ export class Client extends User {
 export class Employee extends User {
     role: string;
     employeeJobs: EmployeeJob[];
-    timesheets: TimeSheet[];
+    timeSheets: TimeSheet[];
 }
 
 export class SubContractor extends Company {
@@ -57,6 +57,7 @@ export class TimeSheet {
     payRate: number;
     jobId: number;
     employee: Employee;
+    timeSheetDetails: TimeSheetDetail[];
 }
 
 export class TimeSheetDetail {

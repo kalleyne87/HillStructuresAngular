@@ -1,8 +1,9 @@
 import { Job, Employee } from './../entities/entities';
 import { EmployeeService } from './employee.service';
+import { TimeSheetService } from './timesheet.service';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable } from 'Rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -12,7 +13,8 @@ export class JobService {
 
     constructor(
         private http: HttpClient,
-        private employeeService: EmployeeService
+        private employeeService: EmployeeService,
+        private timeSheetService: TimeSheetService
     ) {}
 
     getAll(): Observable<Job[]> {
@@ -54,9 +56,18 @@ export class JobService {
                             for(let e of employees) {
                                 if(ej.userID == e.userID) {
                                     jobemployees.push(e);
+                                    for (let je of jobemployees) {
+                                        je.timeSheets = [];
+                                        this.timeSheetService.getByEmployeeJob(e.userID, Job.jobID).subscribe(
+                                            ts => {
+                                                je.timeSheets = ts;
+                                            }
+                                        )
+                                    }
                                 }                            
                             }
                         }
+                        
                     }
                 )
             },

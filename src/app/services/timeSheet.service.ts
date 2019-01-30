@@ -1,7 +1,7 @@
 import { TimeSheet } from '../entities/entities';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable } from 'Rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -21,7 +21,12 @@ export class TimeSheetService {
     get(timeSheetID: number): Observable<TimeSheet> {
         return this.http.get(this.BASE_URL + 'get/' + timeSheetID)
                             .pipe(map(res => res as TimeSheet));
-    }    
+    } 
+    
+    getByEmployeeJob(employeeID: number, jobID: number): Observable<TimeSheet[]> {
+        return this.http.get(this.BASE_URL + 'getByEmployeeJob/' + employeeID + '/' + jobID)
+                            .pipe(map(res => res as TimeSheet[]))
+    }
 
     create(timeSheet: TimeSheet) {
         return this.http.post(this.BASE_URL + 'create/', timeSheet)
