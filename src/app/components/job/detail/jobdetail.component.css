@@ -1,0 +1,21 @@
+mat-header-cell {
+    font-weight: bold;
+    font-size: 15px;   
+}
+
+.jobInfo {
+    margin-left:20px;
+}
+
+a {
+    cursor: pointer;
+}
+
+h1 {
+    font-size:35px;
+    margin-left: 20px;
+}
+
+#money {
+    color: green;
+}

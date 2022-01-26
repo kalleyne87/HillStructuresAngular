@@ -27,7 +27,7 @@
         </ng-container>
         <ng-container matColumnDef="add">
             <mat-header-cell class="adds" *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="details(client.userID)">View Details</button>
+            <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="details(job.jobID)">View Details</button>
                                             <button mat-raised-button color="accent" (click)="addItems(client.userID)">Add Items</button></mat-cell>
         </ng-container>        
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

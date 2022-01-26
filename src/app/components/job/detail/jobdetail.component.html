@@ -1,0 +1,43 @@
+
+<div *ngIf="job">
+        <h1>{{ job.jobName }}</h1>
+        <hr /> 
+        <div class="jobInfo">
+                <p><b>Address: </b>{{ job.address }} </p>
+                <p><b>Start Date: </b>{{ job.startDate | date }} </p>
+                <p><b>End Date: </b>{{ job.endDate | date }}</p>
+                <p><b>Cost Estimate: </b><span id="money">{{ job.costEstimate | currency }}</span></p>
+        </div>
+        <hr />
+        <div>
+                <mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="jobName">
+                                <mat-header-cell *matHeaderCellDef>Job Name</mat-header-cell>
+                                <mat-cell *matCellDef="let job">{{ job.jobName }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="address">
+                                <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+                                <mat-cell *matCellDef="let job">{{ job.address }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="startDate">
+                                <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
+                                <mat-cell *matCellDef="let job">{{ job.startDate | date }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="endDate">
+                                <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
+                                <mat-cell *matCellDef="let job">{{ job.endDate | date }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="costEstimate">
+                                <mat-header-cell *matHeaderCellDef>Cost Estimate</mat-header-cell>
+                                <mat-cell id="money" *matCellDef="let job">{{ job.costEstimate | currency }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="jobDetails">
+                                        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                                        <mat-cell *matCellDef="let job"><button mat-raised-button color="accent" (click)="jobdetails(job.jobID)">View Details</button></mat-cell>
+                        </ng-container> 
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>                                                               
+                </mat-table>
+        </div> 
+</div>
+

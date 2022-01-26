@@ -3,8 +3,10 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar><img class="hs-logo" src="/assets/images/hs-logo.png"></mat-toolbar>
     <mat-nav-list>
+      <br/>
+      <mat-divider></mat-divider>
       <a mat-list-item href="clientlist">Clients</a>
       <a mat-list-item href="joblist">Jobs</a>
       <a mat-list-item href="employeelist">Employees</a>

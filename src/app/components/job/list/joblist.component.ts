@@ -37,6 +37,10 @@ export class JobListComponent implements OnInit {
 
     edit(jobID: number) {
       this.Router.navigate(['/editjob/' + jobID]);
+    }
+        
+    details(jobID: number): void {
+      this.Router.navigate(['/jobdetail/' + jobID]);
     } 
 
     delete(userId: number) {
