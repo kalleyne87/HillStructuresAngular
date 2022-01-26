@@ -1,6 +1,6 @@
 import { JobDataSource } from '../list/joblist.component';
 import { Injectable, Inject } from '@angular/core';
-import { Job } from '../../../entities/entities';
+import { Client } from '../../../entities/entities';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JobService } from '../../../services/job.service';
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
-
+import { Job } from '../../../entities/entities';
 
 
 
@@ -21,7 +21,7 @@ import { DataSource } from '@angular/cdk/table';
 
 export class JobDetailComponent implements OnInit {
 
-    jobID: number;
+    userID: number;
     job: Job;
     displayedColumns: string [] = ['jobName', 'address', 'startDate', 'endDate', 
                                   'costEstimate', 'jobDetails'];
@@ -35,8 +35,8 @@ export class JobDetailComponent implements OnInit {
         }
 
   ngOnInit() {
-      var userID = this.activatedRoute.snapshot.params.userID;
-      this.jobService.get(userID).subscribe(
+      var jobID = this.activatedRoute.snapshot.params.jobID;
+      this.jobService.get(jobID).subscribe(
         res => {
           this.job = res;
           //this.dataSource = new JobSource(this.jobService, this.job.jobID);
@@ -47,25 +47,24 @@ export class JobDetailComponent implements OnInit {
       )
   }
 
-  jobdetails(jobID: number): void {
-    this.router.navigate(['/jobdetail/' + jobID]);
-  }
+  // jobdetails(jobID: number): void {
+  //   this.router.navigate(['/jobdetail/' + jobID]);
+  // }
 
 }
 
-/*export class JobSource extends DataSource<any> {
-  constructor(public clientService: ClientService,
-              public userID: number
-              ) {
-    super();
-  }
+export class EmployeeSource {
+   constructor(public jobService: JobService,
+               public jobID: number
+               ) {
+   }
 
-  connect(): Observable<Job[]> {
-    return this.clientService.get(this.userID).pipe(map(res => res.jobs));
-  }
-  disconnect() {}
+  //   connect(): Observable<Job[]> {
+  //    return this.jobService.get(this.jobID).pipe(map(res => res.employeeJobs.get()(map(res => )));
+  //  }
+   disconnect() {}
 
-}*/
+}
 
 
 

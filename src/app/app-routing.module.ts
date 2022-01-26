@@ -7,10 +7,7 @@ import { AddClientComponent } from './components/client/add/addclient.component'
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
 import { AddJobClientComponent } from './components/client/add/addjobclient.component';
-import { EmployeeDetailComponent } from './components/employee/detail/employeedetail.component';
-import { AddEmployeeComponent } from './components/employee/add/addemployee.component';
-import { EditEmployeeComponent } from './components/employee/edit/editemployee.component';
-import { EmployeeListComponent } from './components/employee/list/employeelist.component';
+import { JobDetailComponent } from './components/job/detail/jobdetail.component';
 import { AddTimeSheetDetailComponent } from './components/timesheetdetail/add/add.component';
 import { TimeSheetDetailListComponent } from './components/timesheetdetail/list/index.component';
 import { EditTimeSheetDetailComponent } from './components/timesheetdetail/edit/edit.component';
@@ -57,23 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'jobdetail/:jobID',
-    component: ClientDetailComponent
-  },
-  {
-    path: 'employeelist',
-    component: EmployeeListComponent
-  },
-  {
-    path: 'employeeclient',
-    component: AddEmployeeComponent
-  },
-  {
-    path: 'editemployee/:userID',
-    component: EditEmployeeComponent
-  },
-  {
-    path: 'employeedetail/:userID',
-    component: EmployeeDetailComponent
+    component: JobDetailComponent
   },
   {
     path: 'timesheetdetail/index',

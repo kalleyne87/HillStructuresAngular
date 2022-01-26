@@ -14,12 +14,12 @@ import { AddJobComponent } from './components/job/add/addjob.component';
 import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { EditJobComponent } from './components/job/edit/editjob.component';
 import { JobListComponent } from './components/job/list/joblist.component';
+import { JobDetailComponent } from './components/job/detail/jobdetail.component';
 import { AddClientComponent } from './components/client/add/addclient.component';
 import { EditClientComponent } from './components/client/edit/editclient.component';
 import { ClientListComponent } from './components/client/list/clientlist.component';
 import { AddJobClientComponent } from './components/client/add/addjobclient.component';
 import { ClientDetailComponent } from './components/client/detail/clientdetail.component';
-import { JobDetailComponent } from './components/job/detail/jobdetail.component';
 import { JobDetailDialogComponent } from './components/job/detail/jobdetaildialog.component';
 import { ClientDetailDialogComponent } from './components/client/detail/clientdetaildialog.component';
 import { EmployeeDetailComponent } from './components/employee/detail/employeedetail.component';
@@ -48,11 +48,6 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     EditJobComponent,    
     JobListComponent,
     JobDetailComponent,
-    JobDetailDialogComponent,
-    AddEmployeeComponent,
-    EditEmployeeComponent,
-    EmployeeDetailComponent,
-    EmployeeListComponent,
     HomeComponent,
     AddClientComponent,
     EditClientComponent,
