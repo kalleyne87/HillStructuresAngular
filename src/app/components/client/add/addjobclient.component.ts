@@ -7,14 +7,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  templateUrl: './addjobclient.component.html'
+  templateUrl: './addjobclient.component.html',
+  styleUrls: ['./addjobclient.component.css'] 
 })
 
 export class AddJobClientComponent implements OnInit {
 
   jobForm: FormGroup;
-  clients: Client[] = [];
-  selectedClient: number;
+  client: Client;
   userID: number
   constructor(
       private formBuilder: FormBuilder,
@@ -27,20 +27,21 @@ export class AddJobClientComponent implements OnInit {
     this.userID = this.activatedRoute.snapshot.params.userID;
     this.clientService.get(this.userID).subscribe(
       res => {
-        this.clients.push(res);
-        this.selectedClient = this.clients[0].userID;
+        this.client = res;
+        this.jobForm = this.formBuilder.group({
+          clientName: [{ value: this.client.firstName + ' ' + this.client.lastName, disabled: true }],
+          clientID: this.client.userID,
+          jobName: '',
+          address: '',
+          startDate: '',
+          endDate: '',
+          costEstimate: 0
+        });
       },
       error => {
         console.log(error);
       })
-      this.jobForm = this.formBuilder.group({
-        clientID: this.selectedClient,
-        jobName: '',
-        address: '',
-        startDate: '',
-        endDate: '',
-        costEstimate: 0
-      });
+
   }
 
   save() {
