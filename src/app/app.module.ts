@@ -48,6 +48,7 @@ import { PaymentSheetDetailService } from './services/paymentSheetDetail.service
     EditJobComponent,    
     JobListComponent,
     JobDetailComponent,
+    JobDetailDialogComponent,
     HomeComponent,
     AddClientComponent,
     EditClientComponent,
